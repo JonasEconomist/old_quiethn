@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiet Hacker News</title>
+    <meta charset="UTF-8">
+
+    <style>
+      html, body { background: #F0F0F0; }
+      body {
+        width: 700px;
+        margin: 44px auto;
+      }
+      ol {
+        list-style: ;
+        margin: 0 0 0 18px;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 22px;
+      }
+      .links {
+        margin-top: 64px;
+        padding-bottom: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quiet Hacker News</h1>
+
+    <ol>
+      {{range .Stories}}
+        <li>
+					<a href="{{.URL}}">{{.Title}}</a>
+					<span>({{.Domain}})</span>
+				</li>
+      {{end}}
+    </ol>
+
+    <div class="links">
+			This project was adapted from Tom Speak's <a href="https://tomspeak.co.uk/posts/quiet-hacker-news">Quiet Hacker News</a> with his permission, and took {{.RenderTime}} to load.
+    </div>
+  </body>
+</html>
