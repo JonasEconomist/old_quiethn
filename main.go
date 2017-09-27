@@ -30,6 +30,7 @@ func (c constErr) Error() string {
 
 func main() {
 	port := flag.Int("port", 3000, "the port to start the server on")
+	flag.Parse()
 	indexTmpl := template.Must(template.ParseFiles("index.gohtml"))
 	addr := fmt.Sprintf(":%d", *port)
 	fmt.Printf("Starting server at %s\n", addr)
@@ -72,7 +73,7 @@ type story struct {
 	URL   string `json:"url"`
 }
 
-// Hostname will attempt to parse the URL and return just
+// Domain will attempt to parse the URL and return just
 // the domain. Eg "gophercises.com" from the URL
 // https://www.gophercises.com/exercises/quiethn
 // It is far from perfect and will miss all subdomains
